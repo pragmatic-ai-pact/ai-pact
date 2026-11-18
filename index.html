@@ -1,0 +1,9 @@
+---
+layout: page
+title: The Pragmatic AI Pact
+---
+
+{% capture pact %}
+{% include_relative PACT.md %}
+{% endcapture %}
+{{ pact | markdownify }}
