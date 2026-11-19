@@ -1,0 +1,322 @@
+/* Keep the navigation visible without obscuring anchored sections. */
+html {
+  scroll-padding-top: 6.5rem;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--paper);
+}
+
+/* The landing page is content-led; keep the introduction on one column. */
+.hero {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.hero-copy {
+  max-width: 1080px;
+}
+
+.hero-introduction > p:last-child {
+  margin-top: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/* The commitment is deliberately one sentence. */
+.commitment-copy h2 {
+  margin: 0 0 0.55rem;
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.17em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.commitment-copy p {
+  max-width: 900px;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+  font-style: normal;
+  line-height: 1.3;
+}
+
+.commitment-copy p:last-child {
+  margin: 0;
+  color: var(--paper-light);
+  font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: 1.3;
+}
+
+/* Two-column adopter / instructions footer. */
+.closing-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.adopters-section {
+  min-width: 0;
+  margin: 0;
+  padding: 0 0 0.5rem;
+}
+
+.adopters-section h2,
+.appendix h2 {
+  margin: 0.35rem 0 0.8rem;
+  font-family: var(--serif);
+  font-size: clamp(1.55rem, 2.3vw, 2rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+}
+
+.adopters-section h3 {
+  margin: 1.35rem 0 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.adopters-section p {
+  max-width: 42rem;
+  margin: 0 0 0.7rem;
+}
+
+.adopters-section ul,
+.commitment-copy ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.7rem 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.adopters-section li,
+.commitment-copy li {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  padding: 0.34rem 0.72rem;
+  border: 1px solid var(--stone);
+  border-radius: 999px;
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  line-height: 1.35;
+}
+
+.adopters-section li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.adopters-section li a:hover {
+  color: var(--terracotta);
+}
+
+/* A linked GitHub handle gets the GitHub mark; plain names stay text-only. */
+.adopters-section a[href*="github.com"]::before {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  flex: 0 0 0.9rem;
+  background: currentColor;
+  content: "";
+  -webkit-mask: url("../images/github-mark.svg") center / contain no-repeat;
+  mask: url("../images/github-mark.svg") center / contain no-repeat;
+}
+
+/* Direct contribution links open GitHub's edit flow, where visitors can
+   propose their adopter entry as a pull request. */
+.adopters-section a[href*="/edit/main/ADOPTERS.md"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.15rem 0 0.45rem;
+  padding: 0.42rem 0.7rem;
+  color: var(--teal);
+  border: 1px solid var(--teal);
+  border-radius: 3px;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.adopters-section a[href*="/edit/main/ADOPTERS.md"]::after {
+  content: "↗";
+  font-family: var(--sans);
+}
+
+.adopters-section a[href*="/edit/main/ADOPTERS.md"]:hover,
+.adopters-section a[href*="/edit/main/ADOPTERS.md"]:focus-visible {
+  color: var(--paper-light);
+  background: var(--teal);
+}
+
+/* Subtle visual distinction for the explicitly fictional entries. */
+.adopters-section h3:last-of-type + p {
+  color: var(--stone-dark);
+  font-size: 0.9rem;
+}
+
+.appendix {
+  min-width: 0;
+  padding-left: clamp(1.5rem, 3vw, 3rem);
+  border-left: 1px solid var(--stone-dark);
+}
+
+.appendix-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.copy-button {
+  display: inline-grid;
+  width: 2.4rem;
+  height: 2.4rem;
+  flex: 0 0 2.4rem;
+  place-items: center;
+  padding: 0;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--teal);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.copy-button:hover,
+.copy-button:focus-visible {
+  color: var(--paper-light);
+  background: var(--teal);
+}
+
+.copy-button svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.copy-button .copied-icon {
+  display: none;
+}
+
+.copy-button.is-copied .copy-icon {
+  display: none;
+}
+
+.copy-button.is-copied .copied-icon {
+  display: block;
+}
+
+.instructions summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.55rem 0.95rem;
+  color: var(--ink);
+  border: 1px solid var(--teal);
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: var(--serif);
+  font-size: 1rem;
+  list-style: none;
+}
+
+.instructions summary::-webkit-details-marker {
+  display: none;
+}
+
+.instructions summary span {
+  color: var(--teal);
+  font-family: var(--sans);
+}
+
+.instructions summary:hover {
+  color: var(--paper-light);
+  background: var(--teal);
+}
+
+.instructions summary:hover span {
+  color: var(--paper-light);
+}
+
+.instructions[open] summary {
+  margin-bottom: 1rem;
+}
+
+.instructions-content {
+  position: relative;
+  padding: 1rem;
+  border: 1px solid var(--stone);
+  border-left: 2px solid var(--teal);
+  background: rgb(251 249 244 / 75%);
+}
+
+.instructions-content pre {
+  max-height: 34rem;
+  margin: 0;
+  overflow: auto;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  line-height: 1.55;
+  tab-size: 2;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.instructions-content code {
+  font-family: inherit;
+}
+
+.copy-status {
+  min-height: 1.2em;
+  margin: 0.35rem 0 0;
+  color: var(--stone-dark);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+}
+
+@media (max-width: 700px) {
+  html {
+    scroll-padding-top: 9rem;
+  }
+
+  .closing-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .appendix {
+    padding: 1.7rem 0 0;
+    border-top: 1px solid var(--stone-dark);
+    border-left: 0;
+  }
+}

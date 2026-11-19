@@ -1,19 +1,37 @@
-# Adopting the AI Pact
+## Our shared commitment
 
-The Pact belongs to everyone who believes in its principles.
+We commit to using AI to improve engineering and share its benefits across the team.
 
-Whether you're an individual engineer or an entire engineering
-team, you're welcome to publicly declare your commitment.
+<!-- adopter-registry -->
 
-## Teams
+## Adopting the Pact
 
-| Team / Organization | Website | Since |
-|---|---|---|
-| Pied Piper | https://example.com | 2026 |
+Teams and individuals are welcome to adopt the Pact, adapt it to their context, and share what they learn.
 
-## Individuals
+### Teams
 
-| Name | Commitment |
-|---|---|
-| Bertram Gilfoyle | "I have reviewed the Pact. It is not entirely stupid." |
-| Dinesh Chugtai | "I asked an AI to sign this for me. It refused." |
+Add your team or organization as a tag. Use a plain name, a website link, or a GitHub link.
+
+[Add your team](https://github.com/pragmatic-ai-pact/ai-pact/edit/main/ADOPTERS.md)
+
+<!-- team-adopters -->
+<!-- Add entries here, for example: -->
+<!-- - Example Engineering Team -->
+<!-- - [@github-team](https://github.com/github-team) -->
+
+### Individuals
+
+The people listed here acknowledge and commit to the principles of the Pact.
+
+[Add your name](https://github.com/pragmatic-ai-pact/ai-pact/edit/main/ADOPTERS.md)
+
+- [@epuertat](https://github.com/epuertat)
+
+<!-- Add a plain name or a GitHub handle, for example: -->
+<!-- - Jane Doe -->
+<!-- - [@github-handle](https://github.com/github-handle) -->
+
+### Fictional supporters
+
+- **Bertram Gilfoyle** — I have reviewed the Pact. It is not entirely stupid.
+- **Dinesh Chugtai** — I asked an AI to sign this for me. It refused.

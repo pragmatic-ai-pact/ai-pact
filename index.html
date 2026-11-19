@@ -1,9 +1,81 @@
 ---
-layout: page
-title: The Pragmatic AI Pact
+layout: default
+title: The Pragmatic AI Engineer Pact
+permalink: /
 ---
+{% capture introduction_source %}{% include_relative INTRODUCTION.md %}{% endcapture %}
+{% assign introduction_sections = introduction_source | split: '<!-- introduction-body -->' %}
+{% capture pact_source %}{% include_relative PACT.md %}{% endcapture %}
+{% assign pact_sections = pact_source | split: '## ' %}
+{% assign principles = pact_sections | slice: 1, 8 %}
+{% assign left_principles = principles | slice: 0, 4 %}
+{% assign right_principles = principles | slice: 4, 4 %}
+{% capture adopters_source %}{% include_relative ADOPTERS.md %}{% endcapture %}
+{% assign adopters_sections = adopters_source | split: '<!-- adopter-registry -->' %}
+{% capture instructions_source %}{% include_relative AI_INSTRUCTIONS.md %}{% endcapture %}
+<main id="main-content" class="site-main">
+  <section class="hero" id="pact" aria-labelledby="page-title">
+    <div class="hero-copy">
+      <div class="hero-tagline">{{ introduction_sections[0] | markdownify }}</div>
+      <h1 id="page-title">The Pragmatic <span>AI</span> Engineer Pact</h1>
+      <div class="hero-introduction markdown-body">
+        {{ introduction_sections[1] | markdownify }}
+      </div>
+    </div>
+  </section>
 
-{% capture pact %}
-{% include_relative PACT.md %}
-{% endcapture %}
-{{ pact | markdownify }}
+  <section class="principles-section" id="principles" aria-labelledby="principles-title">
+    <div class="section-heading">
+      <h2 id="principles-title">The eight principles</h2>
+      <span aria-hidden="true"></span>
+    </div>
+    <div class="principles-grid">
+      <div class="principles-column">
+        {% for section in left_principles %}
+          {% include principle.html section=section number=forloop.index %}
+        {% endfor %}
+      </div>
+      <div class="principles-column principles-column-right">
+        {% for section in right_principles %}
+          {% assign principle_number = forloop.index | plus: 4 %}
+          {% include principle.html section=section number=principle_number %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="commitment-panel" id="commitment" aria-label="Our shared commitment">
+    <div class="commitment-copy markdown-body">
+      {{ adopters_sections[0] | markdownify }}
+    </div>
+  </section>
+
+  <section class="closing-grid" aria-label="Adopters and suggested AI instructions">
+    <section class="adopters-section markdown-body" id="adopters" aria-label="Pact adopters">
+      {{ adopters_sections[1] | markdownify }}
+    </section>
+
+    <section class="appendix" id="appendix" aria-labelledby="appendix-title">
+      <div class="appendix-heading">
+        <h2 id="appendix-title">Suggested AI instructions</h2>
+        <button class="copy-button" type="button" data-copy-target="ai-instructions"
+                aria-label="Copy suggested AI instructions" title="Copy suggested AI instructions">
+          <svg class="copy-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect x="8" y="8" width="13" height="13" rx="2"></rect>
+            <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"></path>
+          </svg>
+          <svg class="copied-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="m5 12 4 4L19 6"></path>
+          </svg>
+        </button>
+      </div>
+      <details class="instructions">
+        <summary>View the instructions <span aria-hidden="true">↗</span></summary>
+        <div class="instructions-content">
+          <pre><code id="ai-instructions">{{ instructions_source | strip | escape }}</code></pre>
+        </div>
+      </details>
+      <p class="copy-status" role="status" aria-live="polite"></p>
+    </section>
+  </section>
+</main>

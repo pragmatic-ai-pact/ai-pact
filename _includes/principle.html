@@ -1,0 +1,13 @@
+{% assign principle_with_breaks = include.section | newline_to_br %}
+{% assign principle_heading = principle_with_breaks | split: '<br />' | first | strip %}
+{% assign number_prefix = include.number | append: ". " %}
+{% assign principle_title = principle_heading | remove_first: number_prefix %}
+{% assign principle_body = include.section | remove_first: principle_heading %}
+{% assign display_number = include.number | prepend: "0" %}
+<article class="principle" id="principle-{{ include.number }}">
+  <span class="principle-number" aria-hidden="true">{{ display_number }}</span>
+  <div class="principle-content">
+    <h3>{{ principle_title | escape }}</h3>
+    <div class="markdown-body">{{ principle_body | markdownify }}</div>
+  </div>
+</article>
