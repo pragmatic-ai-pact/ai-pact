@@ -1,3 +1,17 @@
 title: The Pragmatic AI Pact
 description: Keeping engineering human in the age of AI.
-theme: minima
+url: https://pragmatic-ai-pact.github.io
+baseurl: /ai-pact
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Keep PACT.md as the canonical document. The homepage presents it through
+# the custom editorial layout in index.html.
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules

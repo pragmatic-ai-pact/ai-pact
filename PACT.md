@@ -115,9 +115,8 @@ We are engineers first, AI users second. Let's keep it that way.
 
 By adding my name below, I acknowledge, accept, and commit to adhering to the principles outlined in this document:
 
-- Juan Miguel Olmo
-- Sahina Bose
 - Ernesto Puerta
+- ...
 
 
 ## Suggested AI instructions
